@@ -26,7 +26,12 @@ function SavedPages() {
   }
 
   return (
-    <div className="container mx-auto py-12 px-4 md:px-8 lg:px-12 xl:px-14">
+    <div className="container mx-auto py-12 px-4 md:px-8 lg:px-12 xl:px-14 max-w-[1080px]">
+      <div className="mt-6 border-b-4 border-[#fff200] ">
+        <h1 className="text-3xl text-center font-balto font-semibold">
+          Saved News
+        </h1>
+      </div>
       <ul role="list" className="divide-y divide-gray-400">
         {savedNews.map((savedNewsItem, index) => (
           <li
