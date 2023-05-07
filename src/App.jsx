@@ -4,9 +4,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 import Navbar from './components/Navbar/Navbar';
 import GetNews from './components/News/GetNews';
-import IndonesiaPages from './components/Pages/IndonesiaPages';
-import CovidPages from './components/Pages/CovidPages';
-import Saved from './components/Saved';
+import SavedPages from './components/Pages/SavedPages';
 
 function App() {
   return (
@@ -15,9 +13,21 @@ function App() {
         <Navbar />
         <Routes>
           <Route path="/" element={<GetNews />} />
-          <Route path="/indonesia" element={<IndonesiaPages />} />
-          <Route path="/covid" element={<CovidPages />} />
-          <Route path="/saved" element={<Saved />} />
+          <Route
+            path="/indonesia"
+            element={<GetNews topHeadlines={true} searchQuery={'Indonesia'} />}
+          />
+          <Route
+            path="/covid"
+            element={<GetNews topHeadlines={false} searchQuery={'Covid'} />}
+          />
+          <Route
+            path="/programming"
+            element={
+              <GetNews topHeadlines={false} searchQuery={'Programming'} />
+            }
+          />
+          <Route path="/saved" element={<SavedPages />} />
           {/* <GetNews /> */}
         </Routes>
       </Router>
