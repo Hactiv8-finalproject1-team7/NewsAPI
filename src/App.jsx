@@ -6,6 +6,7 @@ import Navbar from './components/Navbar/Navbar';
 import GetNews from './components/News/GetNews';
 import IndonesiaPages from './components/Pages/IndonesiaPages';
 import CovidPages from './components/Pages/CovidPages';
+import Saved from './components/Saved';
 
 function App() {
   return (

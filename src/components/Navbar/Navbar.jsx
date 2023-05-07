@@ -14,6 +14,9 @@ function Navbar() {
           <Link to="/covid">
             <div className="mx-4">COVID-19</div>
           </Link>
+          <Link to="/saved">
+            <div className="mx-4">Saved</div>
+          </Link>
         </nav>
         <div className="flex flex-row">
           <h1 className="mx-4">search</h1>
