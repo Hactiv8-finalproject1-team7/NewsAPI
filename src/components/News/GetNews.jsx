@@ -27,12 +27,12 @@ function GetNews({ topHeadlines, searchQuery }) {
   }, [apiUrl]);
 
   return (
-    <div className="flex flex-col items-center">
-      <div className="mt-[5vh]">
-        <h1 className="text-2xl font-semibold">News</h1>
+    <div className="flex flex-col items-center ">
+      <div className="mt-[6vh] border-b-4 border-[#fff200] w-[1080px] text-center h-[4vh]">
+        <h1 className="text-3xl font-semibold">{searchQuery} News</h1>
       </div>
-      <div className="grid grid-cols-3 gap-4 w-screen mx-auto max-w-[1440px]">
-        {news.slice(0, 9).map((news) => (
+      <div className="grid grid-cols-3 gap-4 w-screen mx-auto max-w-[1080px]">
+        {news.map((news) => (
           <News news={news} key={news.url} />
         ))}
       </div>
