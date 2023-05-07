@@ -14,8 +14,17 @@ function App() {
         <Navbar />
         <Routes>
           <Route path="/" element={<GetNews />} />
-          <Route path="/indonesia" element={<IndonesiaPages />} />
-          <Route path="/covid" element={<CovidPages />} />
+          <Route path="/indonesia" element={<GetNews topHeadlines={true} />} />
+          <Route
+            path="/covid"
+            element={<GetNews topHeadlines={false} searchQuery={'covid'} />}
+          />
+          <Route
+            path="/programming"
+            element={
+              <GetNews topHeadlines={false} searchQuery={'programming'} />
+            }
+          />
           {/* <GetNews /> */}
         </Routes>
       </Router>

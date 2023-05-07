@@ -5,18 +5,18 @@ function News({ news }) {
   const formattedDate = date.toLocaleDateString('en-US', options);
 
   return (
-    <div className="flex flex-col h-[33vh] flex-wrap p-4 items-center ">
+    <div className="flex flex-col h-[33vh] flex-wrap p-4 items-center mt-4 ">
       <div className="bg-white border-2 p-2">
         <div key={news.title} className="text-2xl font-semibold">
           <h4 className="text-sm">
             {news.author} <span className="">-</span> {news.source.name}
           </h4>
           <h3>{news.title}</h3>
-          <h4 className="text-sm">{formattedDate}</h4>
+          <h4 className="text-sm font-normal">{formattedDate}</h4>
           {news.description ? (
-            <p className="text-lg font-normal">{news.description}</p>
+            <p className="text-sm font-normal">{news.description}</p>
           ) : (
-            <p className="text-lg font-normal">
+            <p className="text-sm font-normal">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus
               ut turpis quis orci rhoncus tincidunt in eu velit. Aliquam dictum
               porta nisi quis molestie. Suspendisse eleifend quam mi, ac

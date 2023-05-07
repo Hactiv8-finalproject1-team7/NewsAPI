@@ -8,8 +8,11 @@ function Navbar() {
           <Link to="/indonesia">
             <div className="mx-4">Indonesia</div>
           </Link>
+          <Link to="/programming">
+            <div className="mx-4">Programming</div>
+          </Link>
           <Link to="/covid">
-            <div className="mx-4">Covid-19</div>
+            <div className="mx-4">COVID-19</div>
           </Link>
         </nav>
         <div className="flex flex-row">
