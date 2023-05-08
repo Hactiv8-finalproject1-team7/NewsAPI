@@ -28,5 +28,5 @@ export function useSavedNews() {
     }
   }
 
-  return [savedNews, isSaved];
+  return [savedNews, setSavedNews];
 }

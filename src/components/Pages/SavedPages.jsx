@@ -2,23 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { useSavedNews } from '../Save';
 
 function SavedPages() {
-  // const [savedNews, setSavedNews] = useState([]);
-
-  // useEffect(() => {
-  //   const savedNewsJson = localStorage.getItem('myData');
-  //   if (savedNewsJson !== null) {
-  //     const parsedData = JSON.parse(savedNewsJson);
-  //     if (Array.isArray(parsedData)) {
-  //       setSavedNews(parsedData);
-  //     } else {
-  //       console.error(
-  //         'Parsed data from local storage is not an array:',
-  //         parsedData
-  //       );
-  //     }
-  //   }
-  // }, []);
-
   const [savedNews, setSavedNews] = useSavedNews();
 
   if (savedNews.length === 0) {
