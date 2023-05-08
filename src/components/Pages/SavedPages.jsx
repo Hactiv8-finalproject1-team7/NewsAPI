@@ -4,46 +4,73 @@ import { useSavedNews } from '../Save';
 function SavedPages() {
   const [savedNews, setSavedNews] = useSavedNews();
 
+  const deleteHandler = (news) => {
+    console.log(news);
+    const index = savedNews.findIndex(
+      (item) => item.title === news.title || item.url === news.url
+    );
+    savedNews.splice(index, 1);
+    localStorage.setItem('myData', JSON.stringify(savedNews));
+    setSavedNews(savedNews);
+    window.location.reload();
+  };
+
   if (savedNews.length === 0) {
-    return <div>No saved news</div>;
+    return (
+      <div className=" flex flex-col items-center my-auto justify-center mx-auto py-12 px-4 md:px-8 lg:px-12 xl:px-14 max-w-[1080px]">
+        <h1 className="text-3xl mt-6">No Saved News</h1>
+      </div>
+    );
   }
 
   return (
-    <div className="container mx-auto py-12 px-4 md:px-8 lg:px-12 xl:px-14 max-w-[1080px]">
+    <div className="mx-auto py-12 px-4 md:px-8 lg:px-12 xl:px-14 max-w-[1080px]">
       <div className="mt-6 border-b-4 border-[#fff200] ">
         <h1 className="text-3xl text-center font-balto font-semibold">
           Saved News
         </h1>
       </div>
-      <ul role="list" className="divide-y divide-gray-400">
-        {savedNews.map((savedNewsItem, index) => (
-          <li
-            key={index}
-            className="flex items-center justify-between gap-x-6 py-5"
-          >
-            <div className="min-w-0">
-              <a
-                href={savedNewsItem.url}
-                target="_blank"
-                className="text-sm font-semibold leading-6 text-gray-900 hover:text-slate-400"
-              >
+      <table className="table-auto">
+        <thead>
+          <tr className="border-b-4 border-[#fff200] h-8">
+            <th>Source</th>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Remove</th>
+          </tr>
+        </thead>
+        <tbody>
+          {savedNews.map((savedNewsItem, index) => (
+            <tr
+              key={index}
+              className={`font-balto ${index % 2 === 0 ? 'bg-[#faf8f8]' : ''}`}
+            >
+              <td className=" ">
+                <div className="p-2 text-[.7em]">
+                  <h2 className="">{savedNewsItem.source.name}</h2>
+                  <h2 className="">{savedNewsItem.author}</h2>
+                  <a
+                    href={savedNewsItem.url}
+                    target="_blank"
+                    className="text-blue-700"
+                  >
+                    Read More
+                  </a>
+                </div>
+              </td>
+              <td className="w-[20vw] p-2 text-[.8em] font-medium">
                 {savedNewsItem.title}
-              </a>
-              <div className="mt-1 flex items-center gap-x-2 text-xs leading-5 text-gray-500">
-                <p className="whitespace-nowrap">
-                  Author {savedNewsItem.author}
-                </p>
-                <svg viewBox="0 0 2 2" className="h-0.5 w-0.5 fill-current">
-                  <circle cx={1} cy={1} r={1} />
-                </svg>
-                <p className="truncate">
-                  News from {savedNewsItem.source.name}
-                </p>
-              </div>
-            </div>
-          </li>
-        ))}
-      </ul>
+              </td>
+              <td className="w-[30vw] p-2 text-[.8em]">
+                {savedNewsItem.description}
+              </td>
+              <td className="w-[2vw] text-[1em] text-red-500 text-center hover:opacity-50">
+                <button onClick={() => deleteHandler(savedNewsItem)}>X</button>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </div>
   );
 }
