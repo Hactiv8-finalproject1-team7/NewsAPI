@@ -27,7 +27,7 @@ function GetNews({ topHeadlines, searchQuery }) {
   }, [apiUrl]);
 
   return (
-    <div className="flex flex-col items-center ">
+    <div className="flex flex-col items-center font-balto ">
       <div className="mt-[6vh] border-b-4 border-[#fff200] w-[1080px] text-center h-[4vh]">
         <h1 className="text-3xl font-semibold">{searchQuery} News</h1>
       </div>
