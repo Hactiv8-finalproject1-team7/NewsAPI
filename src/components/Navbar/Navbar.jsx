@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import Search from '../Search/Search';
 
 function Navbar() {
   const scrollToTop = () => {
@@ -23,10 +24,7 @@ function Navbar() {
               <div className="mx-4">Saved</div>
             </Link>
           </nav>
-          <div className="flex flex-row font-balto">
-            <h1 className="mx-4">search</h1>
-            <button className="mx-4">Cari berita</button>
-          </div>
+          <Search />
         </div>
       </div>
     </div>

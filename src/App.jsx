@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar/Navbar';
 import GetNews from './components/News/GetNews';
 import SavedPages from './components/Pages/SavedPages';
+import Search from './components/Search/Search';
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
           />
           <Route path="/saved" element={<SavedPages />} />
           {/* <GetNews /> */}
+          <Route path="/search" element={<Search />} />
         </Routes>
       </Router>
     </>
