@@ -6,6 +6,7 @@ import Navbar from './components/Navbar/Navbar';
 import GetNews from './components/News/GetNews';
 import SavedPages from './components/Pages/SavedPages';
 import Search from './components/Search/Search';
+import SearchResults from './components/Search/SearchResults';
 
 function App() {
   return (
@@ -29,8 +30,8 @@ function App() {
             }
           />
           <Route path="/saved" element={<SavedPages />} />
-          {/* <GetNews /> */}
           <Route path="/search" element={<Search />} />
+          <Route path="/search/:query" element={<SearchResults />} />
         </Routes>
       </Router>
     </>

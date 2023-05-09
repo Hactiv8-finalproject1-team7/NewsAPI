@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import _ from 'lodash';
 
 const baseUrl =
@@ -6,15 +7,19 @@ const baseUrl =
 
 function Search() {
   const [text, setText] = useState('');
-  async function searchBerita() {
-    try {
-      const response = await window.fetch(`${baseUrl}?=berita`);
-      const data = await response.json();
-      console.log('d', data);
-    } catch (e) {
-      console.Console(e);
+  const navigate = useNavigate();
+
+  const handleKeyPress = (event) => {
+    if (event.key === 'Enter') {
+      searchBerita(text);
     }
-  }
+  };
+
+  const searchBerita = (text) => {
+    console.log(text);
+    setText(text);
+    navigate(`/search/${text}`);
+  };
 
   return (
     <div className="flex flex-row font-balto">
@@ -22,11 +27,16 @@ function Search() {
         <input
           type="text"
           placeholder="Search here"
-          className="p-1 bg-white-50"
-          velue={text}
+          className="p-1 bg-white-50 font-balto font-normal "
+          value={text}
+          onChange={(e) => setText(e.target.value)}
+          onKeyDown={handleKeyPress}
         />
       </div>
-      <button onClick={searchBerita} className="mx-4">
+      <button
+        onClick={() => searchBerita(text)}
+        className="mx-4 bg-[#fff200] hover:opacity-50 p-1 font-semibold font-balto text-[.8em] rounded-md w-[3vw]"
+      >
         Search
       </button>
     </div>
