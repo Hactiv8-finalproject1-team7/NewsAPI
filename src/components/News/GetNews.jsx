@@ -15,15 +15,30 @@ function GetNews({ topHeadlines, searchQuery }) {
     : `https://newsapi.org/v2/everything?q=${searchQuery}&from=${oneMonthAgoString}&to=${today}&apiKey=${apiKey}`;
 
   useEffect(() => {
-    axios
-      .get(apiUrl)
+    fetch(apiUrl)
       .then((response) => {
-        setNews(response.data.articles);
-        console.log(response);
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.json();
+      })
+      .then((data) => {
+        setNews(data.articles);
+        console.log(data);
       })
       .catch((error) => {
-        console.log(error);
+        console.error('There was a problem fetching the data:', error);
       });
+
+    // axios
+    //   .get(apiUrl)
+    //   .then((response) => {
+    //     setNews(response.data.articles);
+    //     console.log(response);
+    //   })
+    //   .catch((error) => {
+    //     console.log(error);
+    //   });
   }, [apiUrl]);
 
   return (
