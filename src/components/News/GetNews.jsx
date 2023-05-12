@@ -14,6 +14,8 @@ function GetNews({ topHeadlines, searchQuery }) {
     ? `https://newsapi.org/v2/top-headlines?country=id&apiKey=${apiKey}`
     : `https://newsapi.org/v2/everything?q=${searchQuery}&from=${oneMonthAgoString}&to=${today}&apiKey=${apiKey}`;
 
+  const https = require('https');
+
   useEffect(() => {
     //   fetch(apiUrl)
     // .then(response => {
