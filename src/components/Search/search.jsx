@@ -2,9 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import _ from 'lodash';
 
-const baseUrl =
-  'https://newsapi.org/v2/everything?q=Apple&from=2023-05-09&sortBy=popularity&apiKey=API_KEY';
-
 function Search() {
   const [text, setText] = useState('');
   const navigate = useNavigate();
