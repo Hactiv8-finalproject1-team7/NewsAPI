@@ -35,7 +35,7 @@ function Search() {
       </div>
       <button
         onClick={() => searchBerita(text)}
-        className="mx-4 bg-[#fff200] hover:opacity-50 p-1 font-semibold font-balto text-[.8em] rounded-md w-[3vw]"
+        className="mx-4 bg-[#fff200] hover:opacity-50 p-1 font-semibold font-balto text-[.8em] rounded-md w-[5vw]"
       >
         Search
       </button>
