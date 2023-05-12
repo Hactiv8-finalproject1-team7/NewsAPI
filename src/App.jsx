@@ -5,7 +5,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar/Navbar';
 import GetNews from './components/News/GetNews';
 import SavedPages from './components/Pages/SavedPages';
-import Search from './components/Search/Search';
+import Search from './components/Search/search';
 import SearchResults from './components/Search/SearchResults';
 
 function App() {

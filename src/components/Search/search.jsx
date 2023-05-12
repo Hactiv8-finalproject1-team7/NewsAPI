@@ -2,9 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import _ from 'lodash';
 
-const baseUrl =
-  'https://newsapi.org/v2/everything?q=Apple&from=2023-05-09&sortBy=popularity&apiKey=API_KEY';
-
 function Search() {
   const [text, setText] = useState('');
   const navigate = useNavigate();
@@ -35,7 +32,7 @@ function Search() {
       </div>
       <button
         onClick={() => searchBerita(text)}
-        className="mx-4 bg-[#fff200] hover:opacity-50 p-1 font-semibold font-balto text-[.8em] rounded-md w-[3vw]"
+        className="mx-4 bg-[#fff200] hover:opacity-50 p-1 font-semibold font-balto text-[.8em] rounded-md w-[5vw]"
       >
         Search
       </button>

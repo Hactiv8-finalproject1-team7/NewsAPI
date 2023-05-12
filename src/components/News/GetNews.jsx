@@ -15,6 +15,21 @@ function GetNews({ topHeadlines, searchQuery }) {
     : `https://newsapi.org/v2/everything?q=${searchQuery}&from=${oneMonthAgoString}&to=${today}&apiKey=${apiKey}`;
 
   useEffect(() => {
+    //   fetch(apiUrl)
+    // .then(response => {
+    //   if (!response.ok) {
+    //     throw new Error("Network response was not ok");
+    //   }
+    //   return response.json();
+    // })
+    // .then(data => {
+    //   setNews(data.articles);
+    //   console.log(data);
+    // })
+    // .catch(error => {
+    //   console.error("There was a problem fetching the data:", error);
+    // });
+
     axios
       .get(apiUrl)
       .then((response) => {
@@ -24,11 +39,25 @@ function GetNews({ topHeadlines, searchQuery }) {
       .catch((error) => {
         console.log(error);
       });
+    // axios
+    //   .get(apiUrl, {
+    //     httpsAgent: new https.Agent({
+    //       rejectUnauthorized: false,
+    //       secureProtocol: 'TLSv1_2_method',
+    //     }),
+    //   })
+    //   .then((response) => {
+    //     setNews(response.data.articles);
+    //     console.log(response);
+    //   })
+    //   .catch((error) => {
+    //     console.log(error);
+    //   });
   }, [apiUrl]);
 
   return (
     <div className="flex flex-col items-center font-balto ">
-      <div className="mt-[6vh] border-b-4 border-[#fff200] w-[1080px] text-center h-[4vh]">
+      <div className="mt-[8vh] border-b-4 border-[#fff200] w-[1080px] text-center h-[7vh]">
         <h1 className="text-3xl font-semibold">{searchQuery} News</h1>
       </div>
       <div className="grid grid-cols-3 gap-4 w-screen mx-auto max-w-[1080px]">
