@@ -30,8 +30,22 @@ function GetNews({ topHeadlines, searchQuery }) {
     //   console.error("There was a problem fetching the data:", error);
     // });
 
+    // axios
+    //   .get(apiUrl)
+    //   .then((response) => {
+    //     setNews(response.data.articles);
+    //     console.log(response);
+    //   })
+    //   .catch((error) => {
+    //     console.log(error);
+    //   });
     axios
-      .get(apiUrl)
+      .get(apiUrl, {
+        httpsAgent: new https.Agent({
+          rejectUnauthorized: false,
+          secureProtocol: 'TLSv1_2_method',
+        }),
+      })
       .then((response) => {
         setNews(response.data.articles);
         console.log(response);
