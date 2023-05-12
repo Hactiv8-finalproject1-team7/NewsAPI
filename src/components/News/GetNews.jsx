@@ -14,8 +14,6 @@ function GetNews({ topHeadlines, searchQuery }) {
     ? `https://newsapi.org/v2/top-headlines?country=id&apiKey=${apiKey}`
     : `https://newsapi.org/v2/everything?q=${searchQuery}&from=${oneMonthAgoString}&to=${today}&apiKey=${apiKey}`;
 
-  const https = require('https');
-
   useEffect(() => {
     //   fetch(apiUrl)
     // .then(response => {
@@ -32,22 +30,8 @@ function GetNews({ topHeadlines, searchQuery }) {
     //   console.error("There was a problem fetching the data:", error);
     // });
 
-    // axios
-    //   .get(apiUrl)
-    //   .then((response) => {
-    //     setNews(response.data.articles);
-    //     console.log(response);
-    //   })
-    //   .catch((error) => {
-    //     console.log(error);
-    //   });
     axios
-      .get(apiUrl, {
-        httpsAgent: new https.Agent({
-          rejectUnauthorized: false,
-          secureProtocol: 'TLSv1_2_method',
-        }),
-      })
+      .get(apiUrl)
       .then((response) => {
         setNews(response.data.articles);
         console.log(response);
@@ -55,6 +39,20 @@ function GetNews({ topHeadlines, searchQuery }) {
       .catch((error) => {
         console.log(error);
       });
+    // axios
+    //   .get(apiUrl, {
+    //     httpsAgent: new https.Agent({
+    //       rejectUnauthorized: false,
+    //       secureProtocol: 'TLSv1_2_method',
+    //     }),
+    //   })
+    //   .then((response) => {
+    //     setNews(response.data.articles);
+    //     console.log(response);
+    //   })
+    //   .catch((error) => {
+    //     console.log(error);
+    //   });
   }, [apiUrl]);
 
   return (
