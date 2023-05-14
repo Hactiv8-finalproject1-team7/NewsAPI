@@ -18,15 +18,5 @@ export function useSavedNews() {
     }
   }, []);
 
-  function isSaved(news) {
-    const isNewsAlreadySaved = savedNews.some(
-      (savedNewsItem) => savedNewsItem.title === news.title
-    );
-    if (!isNewsAlreadySaved) {
-      const updatedSavedNews = [...savedNews, news];
-      setSavedNews(updatedSavedNews);
-    }
-  }
-
   return [savedNews, setSavedNews];
 }
