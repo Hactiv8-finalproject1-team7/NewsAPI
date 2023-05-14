@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { useSavedNews } from '../../hooks/Save';
 
 function News({ news }) {
