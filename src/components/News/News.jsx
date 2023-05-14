@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useSavedNews } from '../Save';
+import { useSavedNews } from '../../hooks/Save';
 
 function News({ news }) {
   const dateStr = news.publishedAt;

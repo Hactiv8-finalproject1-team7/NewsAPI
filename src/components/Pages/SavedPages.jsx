@@ -1,5 +1,5 @@
 import React from 'react';
-import { useSavedNews } from '../Save';
+import { useSavedNews } from '../../hooks/Save';
 
 function SavedPages() {
   const [savedNews, setSavedNews] = useSavedNews();
